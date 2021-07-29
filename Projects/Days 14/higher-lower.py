@@ -4,6 +4,10 @@ from game_data import data
 import random
 
 QUESTION="Who has more followers? Type 'A' or 'B':"
+INDEX_NAME="name"
+INDEX_DESCRIPTION="description"
+INDEX_COUNTRY="country"
+INDEX_FOLLOWERCOUNT="follower_count"
 
 def printCurrentStatus(status,score):
   if status == True:
@@ -12,9 +16,9 @@ def printCurrentStatus(status,score):
     print(f"Sorry, that's wrong. Final score: {score}")
 
 def printData(side,index):
-  name=data[index]['name']
-  description=data[index]['description']
-  country=data[index]['country']
+  name=data[index][INDEX_NAME]
+  description=data[index][INDEX_DESCRIPTION]
+  country=data[index][INDEX_COUNTRY]
   print(f"Compare {side}: {name}, a {description}, from {country}.")
 
 def compareTotalFollower(followerA,followerB):
@@ -23,7 +27,7 @@ def compareTotalFollower(followerA,followerB):
   return "B"
 
 def getTotalFollower(index):
-  return data[index]['follower_count']
+  return data[index][INDEX_FOLLOWERCOUNT]
 
 currentScore=0
 currentIndexDataWinner=random.randint(0,len(data)-1)
